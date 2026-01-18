@@ -73,7 +73,7 @@ freeze_feature_extractor: False
 batch_size_finetune: 8  #
 k_folds: 5  #
 usmall_augmentation : False
-pretrained_checkpoint_path : "/experiments/three_stage_20251222_120600/stage1/checkpoints/best_model_epoch22_cer_4.87.pth"
+pretrained_checkpoint_path : "xx.pth"
 
 cnn_group_size: 16
 cnn_use_gn: True
@@ -84,7 +84,6 @@ max_collate_w: 500
 is_resize: False
 adaptive_downsampler_max_stages: 5
 use_aspect_ratio_grouping: False
-grouping_cache_dir: './configs/cache/'
 num_groups: 3
 detect_anomaly: False
-checkpoint_dir_base: "/home/jiangwenzhu/OCR_result"
+checkpoint_dir_base: "./"

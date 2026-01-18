@@ -1,23 +1,16 @@
 
-img_dir_train: "/home/jiangwenzhu/datasets/single_train/企业数据集-打标/split_train_val_test/train/augmented_dataset_output/images"
-ann_path_train: "/home/jiangwenzhu/datasets/single_train/企业数据集-打标/split_train_val_test/train/augmented_dataset_output/annotations.json"
-#img_dir_train: "/home/jiangwenzhu/datasets/single_train/G3-10w/split_train_val_test/test/images"
-#ann_path_train: "/home/jiangwenzhu/datasets/single_train/G3-10w/split_train_val_test/test/annotations.json"
+img_dir_train: "/images"
+ann_path_train: "/annotations.json"
 
-img_dir_val: "/home/jiangwenzhu/datasets/single_train/企业数据集-打标/split_train_val_test/val/images"
-ann_path_val: "/home/jiangwenzhu/datasets/single_train/企业数据集-打标/split_train_val_test/val/annotations.json"
+img_dir_val: "/val/images"
+ann_path_val: "/val/annotations.json"
 
 
 characters: "0123456789.+-E/:" #
 special_tokens: ["<SOS>", "<EOS>", "<PAD>","<BLK>"]
 max_text_length: 19
-#is_generate: False
 
 
-#YUVA EB
-#img_dir_test: "/public_data/split/train/images" # 可选
-#ann_path_test: "/public_data/split/train/annotations.json" # 可选
-#ADI 169
-img_dir_test: "/public_data/dataset/det/test/crop_images/images" # 可选
-ann_path_test: "/outputs/public_data/dataset/det/test/crop_images/annotations.json" # 可选
+img_dir_test: "/test/crop_images/images" #
+ann_path_test: "/crop_images/annotations.json" #
 

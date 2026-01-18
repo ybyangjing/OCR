@@ -240,7 +240,7 @@ def bootstrap_sample_annotations(original_ann_path: str, seed: int):
 
 
 def main():
-    """主函数 - Bootstrap resamplingEvaluation"""
+    """- Bootstrap resamplingEvaluation"""
 
     parser = argparse.ArgumentParser(description='Bootstrap resamplingEvaluation')
     parser.add_argument('--config', default='./xx/configs', help='Configuration file path')
@@ -253,7 +253,7 @@ def main():
     parser.add_argument('--img_dir',
                         default='./outputs/public_data/split/train/images',
                         help='img_dir')
-    parser.add_argument('--output_dir', default='./bootstrap_results_yube', help='output_dir')
+    parser.add_argument('--output_dir', default='./bootstrap_results', help='output_dir')
 
     parser.add_argument('--batch_size', type=int, default=16, help='batch size')
     parser.add_argument('--num_workers', type=int, default=4)
