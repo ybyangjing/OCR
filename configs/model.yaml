@@ -1,0 +1,90 @@
+
+
+d_model: 192  #
+max_len: 19
+input_channels: 3
+feature_map_h: 16
+feature_map_w: 32
+
+
+feature_extractor_type: 'yoloms'
+
+#
+yoloms_bb_stem_out_channels: 24
+yoloms_bb_stage_configs_detailed:
+  - {ch_factor: 2, num_b: 1, k_sizes: [3, 5], downsample: True}
+  - {ch_factor: 4, num_b: 1, k_sizes: [3, 5], downsample: True}
+  - {ch_factor: 8, num_b: 1, k_sizes: [3, 5], downsample: True}
+yoloms_fpn_out_channels: 96
+
+
+use_conditional_pe: True
+use_deformable_cpe: False
+cpe_hidden_dim: 192
+cpe_num_conv_layers: 2
+
+
+use_segmentation_module: True
+lambda_seg: 0.05
+segmentation_loss_type: 'focal'
+focal_loss_alpha: 0.65
+focal_loss_gamma: 2.0
+
+# Transformer（
+encoder_nhead: 6  #
+encoder_dim_feedforward: 768  #
+encoder_num_layers: 2  #
+
+decoder_nhead: 6  #
+decoder_dim_feedforward: 768  #
+decoder_num_layers: 3  #
+transformer_activation: 'gelu'
+
+
+dropout: 0.5
+label_smoothing: 0.15
+pad_idx: 18
+
+
+learning_rate: 1.0e-4
+weight_decay: 5.0e-3  #
+accumulation_steps: 4
+epochs: 80
+clip_max_norm: 0.5
+use_amp: True
+batch_size: 16
+
+
+lambda_ctc: 0.25
+model_type: "hybrid"
+
+
+scheduler_patience: 8
+early_stopping_patience: 20
+eval_frequency: 1
+num_workers: 4
+
+
+fine_tune_mode: True  #
+learning_rate_finetune: 5.0e-6
+Fine_tune_weight_decay: 1.0e-4
+epochs_finetune: 120
+freeze_feature_extractor: False
+batch_size_finetune: 8  #
+k_folds: 5  #
+usmall_augmentation : False
+pretrained_checkpoint_path : "/experiments/three_stage_20251222_120600/stage1/checkpoints/best_model_epoch22_cer_4.87.pth"
+
+cnn_group_size: 16
+cnn_use_gn: True
+cnn_pretrained: False
+cnn_gn_eps: 1.0e-5
+max_collate_h: 250
+max_collate_w: 500
+is_resize: False
+adaptive_downsampler_max_stages: 5
+use_aspect_ratio_grouping: False
+grouping_cache_dir: './configs/cache/'
+num_groups: 3
+detect_anomaly: False
+checkpoint_dir_base: "/home/jiangwenzhu/OCR_result"
